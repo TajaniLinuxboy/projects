@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&family=Sono:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding:  0;
+  margin:0;
+  font-family: 'Manrope', sans-serif;
+}
+
+
+:root {
+  --width: 500px;
+  --center-height: 100vh;
+  --link-clr:  #3F71E3;
+  --err-clr:  #E33F3F;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container {
+  height:var(--center-height);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+}
+
+.box1, .box2 {
+  height: 600px;
+  width: var(--width);
+  overflow: hidden;
+}
+
+.box1 {
+  background-image: url('https://randombucket1234.s3.amazonaws.com/coding_background.jpg');
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-size: cover;
+}
+
+.box2 {
+  display: grid;
+  place-items:  center;
+}
+
+.input-container {
+  display: grid;
+  place-items:  center;
+  gap: 0.8rem;
+  width: 90%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position:  relative;
+  margin-bottom: 1rem;
+}
+
+.error {
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--err-clr);
+  transform:  scale(1.02)
+}
+
+
+.submit-container {
+  width: 100%;
+  font-size:  1.1rem;
+}
+
+input {
+  outline: none;
+  padding: 1rem;
+  border: none;
+  background: #F2F2F2;
+  overflow: hidden;
+  box-shadow: 3px 2px 1px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+
+.placeholder {
+  position: absolute;
+  left: 10px;
+  transform: translateY(-130%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #C8C8C8;
+  transition: all 300ms ease-in-out;
+}
+
+.container input:valid + .placeholder,
+.container input:focus + .placeholder {
+  top: 1.2rem;
+  font-size: 1rem;
+  color: #222;
+}
+
+.container input:valid,
+.container input:focus{
+  background-size: 100% 2px, 100% 2px, 100%;
+}
+
+
+.header span {
+  font-size: 3rem;
+  font-family: 'Manrope', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition:
+  color 200ms ease-in-out,
+  transform 250ms ease-in-out;
+  padding: 0.3rem;
+}
+
+a:hover {
+  color: var(--link-clr);
+  transform:  scale(1.01);
+}

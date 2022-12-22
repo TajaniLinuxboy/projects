@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block body %}
+  <div class="grid-container">
+
+    <div class="box-container">
+
+    <div class="box1">
+
+    </div>
+
+    <div class="box2">
+      <div class="header">
+        <span>Sign Up</span>
+        </div>
+
+      <form class="input-container" method="post">
+        {{ form.hidden_tag() }}
+
+          <div class="container">
+            {{ form.username(class='username', required=True) }}
+            {% for error in form.username.errors %}
+            {% if error %}
+            <span class="error">{{ error }}</span>
+            {% endif %}
+            {% endfor %}
+            <span class="placeholder">Username</span>
+          </div>
+
+          <div class="container">
+            {{ form.email(class='email', required=True) }}
+            {% for error in form.email.errors %}
+            {% if error %}
+            <span class="error">{{ error }}</span>
+            {% endif %}
+            {% endfor %}
+            <span class="placeholder">Email</span>
+          </div>
+
+          <div class="container">
+            {{ form.password(class='password', required=True) }}
+            {% for error in form.password.errors %}
+            {% if error %}
+            <span class="error">{{ error }}</span>
+            {% endif %}
+            {% endfor %}
+            <span class="placeholder">Password</span>
+          </div>
+
+          <div class="submit-container">
+            {{ form.submit(class='submit-btn') }}
+          </div>
+
+            <a href="{{ url_for('login') }}">Already Have An Account</a
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
