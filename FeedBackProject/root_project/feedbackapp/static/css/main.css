@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&family=Sono:wght@300&display=swap'); 
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+*::before, *::after {
+    box-sizing: border-box;
+}
+
+.box {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+}
+
+.form-flex {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 0.25rem;
+    width: 50%; 
+}
+
+.container input {
+    width: 100%;
+    margin-top: 0.3rem;
+    padding: 0.7rem;
+    border: none;
+    outline: none;
+    background: rgba(206, 205, 205, 0.187);
+}
+
+.container {
+    position: relative;
+}
+
+.placeholder {
+    position: absolute;
+    left: 0.7rem;
+    top: calc(0.7rem + 0.6rem);
+    transform: translateY(-50%);
+    color: #aaa;
+    transition: all 0.2s ease-in-out;
+}
+
+
+.container input:valid + .placeholder,
+.container input:focus + .placeholder {
+    top: calc(0.7rem - 0.6rem);
+    color: #222;
+}
+
+
+#title {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.underline::before{
+    content: "";
+    position:absolute;
+}
+
+textarea {
+    padding: 0.5rem;
+    resize: none;
+}
+
+button[type='submit'] {
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    transition: all 300ms ease-in-out;
+}
+
+button[type='submit']:hover {
+    background: black;
+    color: white;
+}
