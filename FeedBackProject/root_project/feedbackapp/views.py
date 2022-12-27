@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
 from feedbackapp.forms import FeedBackForm
 from django.core.mail import send_mail
 from django.conf import settings
@@ -14,18 +14,13 @@ def home(request):
         if form.is_valid():
             send_mail(
                 subject="FeedBackForm",
-                message="Thank You For Completing the Form",
+                message=f"Thank you {form.cleaned_data['firstname']} {form.cleaned_data['lastname']} for responding",
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=[form.cleaned_data['email']],
             )
-            return redirect('/success/')
+            return HttpResponse("<h1>Success</h1>")
 
     else:
         form = FeedBackForm() 
 
     return render(request, 'feedbackapp/index.html', {"form": form})
-
-
-
-def success(request): 
-    return HttpResponse("<h1>Success</h1>")
