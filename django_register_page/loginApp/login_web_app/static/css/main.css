@@ -1,0 +1,90 @@
+*,*::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  ::root {
+    --height: 100vh;
+    --invalid: #f0574f;
+    --valid:  #90ee6d;
+  }
+  
+  .register-box {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  
+  .register-container {
+    display: grid;
+    grid-auto-flow: row;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+    padding: 2rem;
+    width: 400px;
+    height: 500px;
+    gap: 1rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+  }
+  
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .container {
+    transition: all 250ms ease-in-out;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.4rem;
+    border-radius: 0.15rem;
+    outline: none;
+    border: none;
+    background: #f4f3f3 ;
+    transition: all 100ms ease-in;
+  }
+  
+  .container:hover {
+    margin-left: 0.3rem;
+  }
+  
+  button {
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    background: black;
+    color: white;
+    font-size: 1rem;
+    border-radius: 0.23rem;
+    transition: transform 300ms ease-in;
+  }
+  
+  button:hover {
+    transform: scale(1.01);
+  }
+
+  input:invalid {
+    border-bottom: 1.5px solid #f0574f;
+  }
+  
+  input:valid {
+    border-bottom: 1.5px solid #90ee6d;
+  }
+
+  input::placeholder {
+    color:  #c9c9c9;
+  }
+
+  .errorlist {
+    list-style: none;
+    color: #F35D3C;
+    font-size: 0.8rem;
+  }

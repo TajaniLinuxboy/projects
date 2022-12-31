@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+
+{% block index_head %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<title>Register</title>
+{% endblock %}
+
+{% block header %}
+<span class="title">Register</span>
+{% endblock %}
+
+{% block username %}
+{{ form.username.errors }}
+{{ form.username }}
+{% endblock %}
+
+{% block email %}
+{{ form.email.errors }}
+{{ form.email }}
+{% endblock %}
+
+{% block password %}
+{{ form.password.errors }}
+{{ form.password }}
+{% endblock %}
+
+{% block action %}
+<button type="submit"> Sign up </button>
+<a href="{% url 'login-home' %}">Have an Account Already?</a> 
+{% endblock %}
+
+{% block index_script %} 
+<script src="{% static 'js/main.js' %}" ></script>
+{% endblock %}
