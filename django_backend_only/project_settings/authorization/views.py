@@ -19,9 +19,11 @@ def register(request):
             paswd = make_password(form.cleaned_data.get('password'), salt=secrets.token_hex(32))
             register_user = registerModel(email=form.cleaned_data['email'], password=paswd)
             register_user.save()
-            logger.debug("User added to database")
+            messages.success(request, f"{form.cleaned_data.get('email')} account created ")
             return redirect(reverse('auth-login'))
-    
+        else: 
+            messages.error(request, f"User Login Failed") 
+
     form = RegisterForm()
     return render(request, 'authorization/register.html', context={'form': form})
 
@@ -44,8 +46,7 @@ def login(request):
                     return redirect(reverse('auth-login'))
             except registerModel.DoesNotExist as e: 
                 messages.error(request, e)
-
-            logger.debug("User logged in")
+                
     
     form = LoginForm()
     return render(request, 'authorization/login.html', context={'form': form})

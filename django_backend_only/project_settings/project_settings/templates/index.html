@@ -7,6 +7,17 @@
 {% block body %}
 <body>
     <div class="register-box">
+      
+      <div class="messages">
+        {% if messages %}
+        {% for msg in messages %} 
+        <strong>{{ msg }}</strong>
+        <button type="button" class="close">&times;</button>
+        {% endfor %} 
+        {% endif %}
+
+      </div>
+
     <div class="register-container">
         <div class="header">
         {% block header %}
@@ -21,7 +32,7 @@
         {% endblock %}
         </div>
         
-        <div class='container email-container'>
+        <div class='container'>
         {% block email %}
         {% endblock %}
         </div>
@@ -41,5 +52,11 @@
 {% endblock %}
 
 {% block script %}
+<script>
+  const button = document.querySelector('.close')
+  button.addEventListener("click", (event) => {
+      button.parentElement.style.display = "none"
+  })
+</script>
 {% block index_script %} {% endblock %}
 {% endblock %}

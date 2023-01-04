@@ -9,6 +9,7 @@ from authorization.models import registerModel, TemporaryTokenModel
 from project_settings import logger
 from project_settings.settings import SECRET_KEY
 from django.contrib.auth.hashers import make_password
+from django.contrib import messages
 
 REGISTER_QUERY = registerModel.objects
 TEMPKEY_QUERY = TemporaryTokenModel.objects
@@ -37,9 +38,10 @@ def recover(request):
                     recipient_list=[email]
                 )
 
+                messages.success(request, f"Email sent to: {email}")
                 return HttpResponse(SUCCESS)
-        except registerModel.DoesNotExist: 
-            print("Can't find Account")
+        except registerModel.DoesNotExist:
+            messages.error(request, f"Invalid Email: {email}")
 
     form = RecoveryForm()
     return render(request, 'forgotPassword/recovery.html', context={'form': form})
@@ -55,7 +57,7 @@ def recover_link(request):
         try:
             check_temp_token = TEMPKEY_QUERY.get(token=temporary_token)
         except TemporaryTokenModel.DoesNotExist: 
-            logger.debug('User does not exist')
+            messages.error(request, "Invalid Token")
     
     if request.method == 'POST':
         form = SetPasswordForm(request.POST)
@@ -72,9 +74,11 @@ def recover_link(request):
                 logger.debug(query)
                 temp_token.delete()
                 
+                messages.success(request, "Password Changed")
                 return redirect(reverse('auth-login'))
 
             except TemporaryTokenModel.DoesNotExist:
+                messages.info(request, "Need Email")
                 return redirect(reverse('forgotpassword-home'))
-    
+
     return render(request, 'forgotPassword/recover_link.html', context={'form': form})
