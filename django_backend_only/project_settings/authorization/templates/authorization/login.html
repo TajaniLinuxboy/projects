@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block index_head %} 
+{% endblock %}
+
+{% block header %}
+<span class="header">Login</span> 
+{% endblock %} 
+
+{% block email %}
+    {{ form.email.errors }}
+    {{ form.email }} 
+{% endblock %}
+
+{% block password %}
+    {{ form.password.errors }}
+    {{ form.password }}
+{% endblock %}
+
+{% block action %}
+<button type="submit">Log In</button>
+<a href="{% url 'auth-register' %}"> Don't have an account? </a>
+<a href="{% url 'forgotpassword-home' %}">Account Recovery</a> 
+{% endblock %}
