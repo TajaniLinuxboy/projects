@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200&family=Sono:wght@300&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.static-title {
+  font-size: 1.5rem;
+}
+
+.notification {
+  padding: 1.2rem;
+  background-color: #39a456;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  transition: transform 300ms ease-in;
+}
+
+.closebtn {
+  margin-left: 1rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transform: scale(1.3);
+  transition: transform 300ms ease-in-out;
+}
+
+.closebtn:hover {
+  transform: scale(1.4);
+}
+
+span > strong {
+  padding: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.success {
+  font-size: 1.2rem;
+}
+
+.card {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem;
+  box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 400px;
+  height: 100%;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+.addbtn {
+  padding: 0.4rem;
+  margin-left: 0.3rem;
+  font-size: 1.2rem;
+  transform: scale(1.5);
+  font-weight: bold;
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0.2rem;
+}
+
+.card-header {
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  border-bottom: 1px solid silver;
+  margin: 0;
+  padding: 0.3rem;
+}
+
+.header::placeholder {
+  font-size: 1.1rem;
+  transition: color 250ms ease-in-out;
+}
+
+.header:focus::placeholder {
+  color: transparent;
+}
+
+.input-link {
+  padding: 0.3rem;
+  width: 100%;
+}
+
+.header + span::before {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0;
+  width: 0%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+  transition: width 250ms ease-in-out;
+}
+
+.header:focus + span::before {
+  width: 100%;
+}
+
+.setText {
+  font-size: 1.4rem;
+  font-family: "Manrope", sans-serif;
+}
+
+.navbar-container {
+  display: none;
+}
+
+.navbar-container {
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+  background: #3fc5e3;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.navbar ul li > a {
+  text-decoration: none;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  color: black;
+}
+
+.navbar ul li span {
+  padding: 0.3rem;
+}
+
+.nav-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-options {
+  padding: 0.2rem;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.card-options ul {
+  list-style: none;
+}
+
+.add-task {
+  padding: 0.4rem;
+}
+
+.add-task:hover {
+  cursor: pointer;
+}
+
+.card-textarea > textarea {
+  resize: none;
+  overflow: none;
+  padding: 0.5rem;
+  outline: none;
+}
+
+
+.card-action {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.save {
+  background-color: black;
+  color: white;
+}
+
+.card-action > button {
+  box-shadow: 1px 2px 2px rgba(0,0,0,0.2);
+  padding: 1rem;
+  font-size: 1rem;
+  transition: transform 250ms ease-in-out;
+}
+
+
+.card-action > button:hover {
+  transform: scale(1.024);
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: black;
+}
+
+.nav-container > span {
+  font-size: 1.4rem;
+  color: white;
+  padding: 0.8rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.3rem;
+}
+
+.nav-list > li > a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-list > li {
+  font-size: 1.1rem;
+}

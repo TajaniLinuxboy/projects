@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block head %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <title>Login</title>
+{% endblock %}
+
+{% block header %}
+    <span class="header">Login</span>
+{% endblock %}
+
+{% block email %}
+    {{ form.email.errors }}
+    {{ form.email }}
+{% endblock %}
+
+{% block password %}
+    {{ form.password.errors }}
+    {{ form.password }}
+{% endblock %}
+
+{% block action %}
+    <button type="submit">Login</button>
+    <a href="{% url 'register' %} "> Need An Account </a>
+    <a href="{% url 'forgotpassword' %}"> Forgot Password </a>
+{% endblock %}
