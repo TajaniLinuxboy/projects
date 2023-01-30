@@ -14,11 +14,15 @@ RUN mkdir -p .local/bin
 
 ENV PATH=$PATH:/home/docker/.local/bin
 
-COPY requirements/requirements.txt .
+ENV MYCONFIG='.env.ini'
+
+COPY django/requirements/requirements.txt .
 
 RUN python3 -m pip install -r requirements.txt
 
-COPY ../project_settings/ .
+WORKDIR app
+
+COPY project_settings/ .
 
 USER root
 

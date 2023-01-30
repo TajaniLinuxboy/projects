@@ -41,7 +41,9 @@ SECRET_KEY = config['secret-settings']['secret_key']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '172.18.0.3',
+]
 
 
 # Application definition
@@ -104,7 +106,7 @@ DATABASES = {
         'NAME': config['secret-settings']['database_name'],
         'USER': config['secret-settings']['database_user'],
         'PASSWORD': config['secret-settings']['database_password'],
-        'HOST': config['secret-settings']['database_host'],
+        'HOST': '172.18.0.2',
         'PORT': '3306',
     }, 
 }
