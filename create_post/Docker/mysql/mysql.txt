@@ -1,0 +1,10 @@
+Commands: 
+    (hostname.domainname)
+    Mysql Server:
+    - docker run --name some_name --network some_network --domainname some_domain_name -e MYSQL_ROOT_PASSWORD=somepassword -d mysql:latest (runs container in the background)
+
+    Mysql Client: 
+    - docker run -it --rm (remove container once exited) mysql (another mysql container) mysql -h some_hostname -u some_user -p (creates mysql client with a mysql prompt) 
+    
+
+

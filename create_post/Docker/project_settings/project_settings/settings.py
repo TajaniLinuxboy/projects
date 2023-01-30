@@ -101,10 +101,10 @@ WSGI_APPLICATION = 'project_settings.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'CreatePost',
+        'NAME': config['secret-settings']['database_name'],
         'USER': config['secret-settings']['database_user'],
         'PASSWORD': config['secret-settings']['database_password'],
-        'HOST': 'localhost',
+        'HOST': config['secret-settings']['database_host'],
         'PORT': '3306',
     }, 
 }
