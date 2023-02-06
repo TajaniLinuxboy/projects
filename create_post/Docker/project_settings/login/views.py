@@ -35,7 +35,9 @@ def login(request):
             password = form.cleaned_data.get('password')
             if auth.login(request, email, password):
                 messages.success(request, 'Successfully Logged In')
-                return redirect(reverse('mypost'))    
+                return redirect(reverse('mypost'))
+
+            messages.error(request, 'Invalid Credentials')    
     
     return render(request, 'login/login.html', context={'form': form})
 
